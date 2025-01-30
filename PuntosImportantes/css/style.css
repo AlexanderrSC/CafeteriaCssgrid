@@ -1,0 +1,70 @@
+.section{
+    display: grid;
+    background-color: aquamarine;
+    border: 1px solid red;
+    padding: 10px;
+    grid-template-columns: 100px 200px 50px;
+    grid-template-rows: 100px 200px 50px;
+    gap: 10px;
+}
+.section div{
+    background-color: goldenrod;
+}
+
+.section2{
+    display: grid;
+    background-color: aquamarine;
+    border: 1px solid red;
+    padding: 10px;
+    height: 300px;
+    /* grid-template-columns: 100px 200px 50px;
+    grid-template-rows: 100px 200px 50px; */
+    /* 
+    esta es la forma de hacer mas rapido de generalizar filas /columnas
+    grid-template: 100px 200px 50px / 100px 200px 50px; 
+    */
+
+    /*como vemos que no completan todo el espacio del contenido aplicamos
+    el fr ya que estre atraibuto es primordial
+    */
+    /* grid-template: 100px 50px 100px / 1fr 2fr 1fr; */
+    grid-template: 50px 50px/ repeat(3, 50px) /*50px 50px 50px*/;
+    gap: 10px;
+
+    /*otra funcion importante para controlar las creaciones de nuevas filas o columnas podemos utilizar*/
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column dense;
+    place-content: center;
+
+}
+
+.section2 div{
+    background-color: goldenrod;
+    text-align: center;
+}
+.section2 div:first-child{
+    grid-column: 1/4;/*el las propiedades del navegador para ver que puesto ocupa y combinar esos valores */
+}
+.section2 div:last-child{
+    grid-row: span 2;
+}
+
+.section2 div:nth-child(7){
+    grid-area: 1/1/3/3;
+}
+
+/*min-max*/
+.minmax{
+    background-color: darkcyan;
+    padding: 10px;
+    display: grid;
+    gap: 10px;
+    /*este calor adecua el tamaño pero sera igual*/
+    grid-template-columns: min-content max-content minmax(100px , 1fr);
+}
+.minmax div{
+    background-color: green;
+    text-align: center;
+    padding: 10px;
+    color: azure;
+}
